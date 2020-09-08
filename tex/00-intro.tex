@@ -1,3 +1,5 @@
+{\bf Introduction}
+
 In this assignment, you will get some hands-on experience with logic. You'll see
 how logic can be used to represent the meaning of natural language sentences,
 and how it can be used to solve puzzles and prove theorems. Most of this
@@ -8,19 +10,31 @@ To get started, launch a Python shell and try typing the following commands to
 add logical expressions into the knowledge base.
 
 \begin{lstlisting}
-from logic import *
-Rain = Atom(`Rain')           # Shortcut
-Wet = Atom(`Wet')             # Shortcut
-kb = createResolutionKB()     # Create the knowledge base
-kb.ask(Wet)                   # Prints "I don't know."
-kb.ask(Not(Wet))              # Prints "I don't know."
-kb.tell(Implies(Rain, Wet))   # Prints "I learned something."
-kb.ask(Wet)                   # Prints "I don't know."
-kb.tell(Rain)                 # Prints "I learned something."
-kb.tell(Wet)                  # Prints "I already knew that."
-kb.ask(Wet)                   # Prints "Yes."
-kb.ask(Not(Wet))              # Prints "No."
-kb.tell(Not(Wet))             # Prints "I don't buy that."
+(XCS221) $ python
+Python 3.6.9
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from logic import *
+>>> Rain = Atom(`Rain')           # Shortcut
+>>> Wet = Atom(`Wet')             # Shortcut
+>>> kb = createResolutionKB()     # Create the knowledge base
+>>> kb.ask(Wet)                   
+I don't know.
+>>> kb.ask(Not(Wet))              
+I don't know.
+>>> kb.tell(Implies(Rain, Wet))   
+I learned something.
+>>> kb.ask(Wet)                   
+I don't know.
+>>> kb.tell(Rain)                 
+I learned something.
+>>> kb.tell(Wet)                  
+I already knew that.
+>>> kb.ask(Wet)                   
+Yes.
+>>> kb.ask(Not(Wet))              
+No.
+>>> kb.tell(Not(Wet))             
+I don't buy that.
 \end{lstlisting}
 
 To print out the contents of the knowledge base, you can call |kb.dump()|.

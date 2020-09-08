@@ -1,0 +1,24 @@
+% DO NOT MAKE EDITS TO THIS FILE
+% POINT VALUES ARE ASSIGNED IN src/points.json
+\usepackage{xstring}
+\newcommand{\points}[1]{
+  \IfEqCase{#1}{
+    {1a}{\textbf{[1 point (Coding, Extra Credit)]}}
+    {1b}{\textbf{[1 point (Coding, Extra Credit)]}}
+    {1c}{\textbf{[1 point (Coding, Extra Credit)]}}
+    {2a}{\textbf{[0.25 points (Coding, Extra Credit)]}}
+    {2b}{\textbf{[0.25 points (Coding, Extra Credit)]}}
+    {2c}{\textbf{[0.25 points (Coding, Extra Credit)]}}
+    {2d}{\textbf{[0.25 points (Coding, Extra Credit)]}}
+    {3a}{\textbf{[1 point (Coding, Extra Credit)]}}
+    {4a}{\textbf{[1 point (Written, Extra Credit)]}}
+    {4b}{\textbf{[1 point (Written, Extra Credit)]}}
+    {5a}{\textbf{[1 point (Coding, Extra Credit)]}}
+    {5b}{\textbf{[1 point (Written, Extra Credit)]}}
+    {6a}{\textbf{[1 point (Coding, Extra Credit)]}}
+    {6b}{\textbf{[1 point (Coding, Extra Credit)]}}
+    {6c}{\textbf{[1 point (Coding, Extra Credit)]}}
+  }[\PackageError{points}{Cannot assign point value to unknown question: #1}{}]
+}
+% DO NOT MAKE EDITS TO THIS FILE
+% POINT VALUES ARE ASSIGNED IN src/points.json

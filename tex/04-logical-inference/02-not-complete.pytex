@@ -9,3 +9,8 @@ complete.
 
 {\bf Your task:} Convert the knowledge base into CNF and apply the resolution rule repeatedly
 to derive $D$.
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% 📝_4b(.*?)% 📝_4b', f.read(), re.DOTALL)).group(1))
+🐍

@@ -15,3 +15,8 @@ apply derivation rules.
 Remember, this isn't about you as a human being able to arrive at the
 conclusion, but rather about the rote application of a small set of
 transformations (which a computer could execute).}
+
+🐍
+import re
+with open('submission.tex') as f: print((re.search(r'% 📝_4a(.*?)% 📝_4a', f.read(), re.DOTALL)).group(1))
+🐍

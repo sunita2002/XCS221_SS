@@ -18,5 +18,5 @@ transformations (which a computer could execute).}
 
 🐍
 import re
-with open('submission.tex') as f: print((re.search(r'% 📝_4a(.*?)% 📝_4a', f.read(), re.DOTALL)).group(1))
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_4a(.*?)% <SCPD_SUBMISSION_TAG>_4a', f.read(), re.DOTALL)).group(1))
 🐍

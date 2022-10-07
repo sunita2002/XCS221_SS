@@ -108,7 +108,7 @@ def liar():
     return (formulas, query)
 
 ############################################################
-# Problem 5: Odd and even integers
+# Problem 4: Odd and even integers
 
 # Return the following 6 laws:
 # 0. Each number $x$ has exactly one successor, which is not equal to $x$.
@@ -139,7 +139,7 @@ def ints():
     return (formulas, query)
 
 ############################################################
-# Problem 6: semantic parsing (extra credit)
+# Problem 5: semantic parsing (extra credit)
 # Each of the following functions should return a GrammarRule.
 # Look at createBaseEnglishGrammar() in nlparser.py to see what these rules should look like.
 # For example, the rule for 'X is a Y' is:

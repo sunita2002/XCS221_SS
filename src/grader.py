@@ -181,50 +181,50 @@ class Test_3a(TestCase_A7):
   def test_run(self):
     """3a-run-basic:  test implementation of run for 3a"""
     self.check('run', '3a', 6, submission.liar)
-class Test_5a(TestCase_A7):
+class Test_4a(TestCase_A7):
   @graded(timeout=10000)
   def test_0(self):
-    """5a-0-basic:  test implementation of statement 0 for 5a"""
-    self.check(0, '5a', 6, submission.ints)
+    """4a-0-basic:  test implementation of statement 0 for 4a"""
+    self.check(0, '4a', 6, submission.ints)
 
   @graded(timeout=10000)
   def test_1(self):
-    """5a-1-basic:  test implementation of statement 1 for 5a"""
-    self.check(1, '5a', 6, submission.ints)
+    """4a-1-basic:  test implementation of statement 1 for 4a"""
+    self.check(1, '4a', 6, submission.ints)
 
   @graded(timeout=10000)
   def test_2(self):
-    """5a-2-basic:  test implementation of statement 2 for 5a"""
-    self.check(2, '5a', 6, submission.ints)
+    """4a-2-basic:  test implementation of statement 2 for 4a"""
+    self.check(2, '4a', 6, submission.ints)
 
   @graded(timeout=10000)
   def test_3(self):
-    """5a-3-basic:  test implementation of statement 3 for 5a"""
-    self.check(3, '5a', 6, submission.ints)
+    """4a-3-basic:  test implementation of statement 3 for 4a"""
+    self.check(3, '4a', 6, submission.ints)
 
   @graded(timeout=10000)
   def test_4(self):
-    """5a-4-basic:  test implementation of statement 4 for 5a"""
-    self.check(4, '5a', 6, submission.ints)
+    """4a-4-basic:  test implementation of statement 4 for 4a"""
+    self.check(4, '4a', 6, submission.ints)
 
   @graded(timeout=10000)
   def test_5(self):
-    """5a-5-basic:  test implementation of statement 5 for 5a"""
-    self.check(5, '5a', 6, submission.ints)
+    """4a-5-basic:  test implementation of statement 5 for 4a"""
+    self.check(5, '4a', 6, submission.ints)
 
   @graded(timeout=10000)
   def test_all(self):
-    """5a-all-basic:  test implementation of all for 5a"""
-    self.check('all', '5a', 6, submission.ints)
+    """4a-all-basic:  test implementation of all for 4a"""
+    self.check('all', '4a', 6, submission.ints)
 
   @graded(timeout=10000)
   def test_run(self):
-    """5a-run-basic:  test implementation of run for 5a"""
-    self.check('run', '5a', 6, submission.ints)
-class Test_6a(TestCase_A7):
+    """4a-run-basic:  test implementation of run for 4a"""
+    self.check('run', '4a', 6, submission.ints)
+class Test_5a(TestCase_A7):
   @graded(timeout=60, is_extra_credit=True)
   def test_0(self):
-    """6a-0-basic:  Check basic behavior of rule"""
+    """5a-0-basic:  Check basic behavior of rule"""
     examples = [
         ('Every person likes some cat.', ('tell', CONTINGENT)),
         ('Every cat is a mammal.', ('tell', CONTINGENT)),
@@ -234,7 +234,7 @@ class Test_6a(TestCase_A7):
 
   @graded(timeout=60, is_extra_credit=True)
   def test_1(self):
-    """6a-1-basic:  Check basic behavior of rule"""
+    """5a-1-basic:  Check basic behavior of rule"""
     examples = [
         ('Every person likes some cat.', ('tell', CONTINGENT)),
         ('Every tabby is a cat.', ('tell', CONTINGENT)),
@@ -244,7 +244,7 @@ class Test_6a(TestCase_A7):
 
   @graded(timeout=60, is_extra_credit=True)
   def test_2(self):
-    """6a-2-basic:  Check basic behavior of rule"""
+    """5a-2-basic:  Check basic behavior of rule"""
     examples = [
         ('Every person likes some cat.', ('tell', CONTINGENT)),
         ('Every person is a mammal.', ('tell', CONTINGENT)),
@@ -254,7 +254,7 @@ class Test_6a(TestCase_A7):
 
   @graded(timeout=60, is_extra_credit=True)
   def test_3(self):
-    """6a-3-basic:  Check basic behavior of rule"""
+    """5a-3-basic:  Check basic behavior of rule"""
     examples = [
         ('Every person likes some cat.', ('tell', CONTINGENT)),
         ('Garfield is a cat.', ('tell', CONTINGENT)),
@@ -265,7 +265,7 @@ class Test_6a(TestCase_A7):
 
   @graded(timeout=60, is_extra_credit=True)
   def test_4(self):
-    """6a-4-basic:  Check basic behavior of rule"""
+    """5a-4-basic:  Check basic behavior of rule"""
     examples = [
         ('Every person likes some cat.', ('tell', CONTINGENT)),
         ('Garfield is a cat.', ('tell', CONTINGENT)),
@@ -273,10 +273,10 @@ class Test_6a(TestCase_A7):
         ('Jon likes Garfield?', ('ask', CONTINGENT)),
     ]
     self.compareExtraCreditKnowledgeBase(examples, submission.createRule1)
-class Test_6b(TestCase_A7):
+class Test_5b(TestCase_A7):
   @graded(timeout=60, is_extra_credit=True)
   def test_0(self):
-    """6b-0-basic:  Check basic behavior of rule"""
+    """5b-0-basic:  Check basic behavior of rule"""
     examples = [
         ('There is some cat that every person likes.', ('tell', CONTINGENT)),
         ('Every cat is a mammal.', ('tell', CONTINGENT)),
@@ -286,7 +286,7 @@ class Test_6b(TestCase_A7):
 
   @graded(timeout=60, is_extra_credit=True)
   def test_1(self):
-    """6b-1-basic:  Check basic behavior of rule"""
+    """5b-1-basic:  Check basic behavior of rule"""
     examples = [
         ('There is some cat that every person likes.', ('tell', CONTINGENT)),
         ('Jon is a person.', ('tell', CONTINGENT)),
@@ -296,7 +296,7 @@ class Test_6b(TestCase_A7):
 
   @graded(timeout=60, is_extra_credit=True)
   def test_2(self):
-    """6b-2-basic:  Check basic behavior of rule"""
+    """5b-2-basic:  Check basic behavior of rule"""
     examples = [
         ('There is some cat that every person likes.', ('tell', CONTINGENT)),
         ('Garfield is a cat.', ('tell', CONTINGENT)),
@@ -304,10 +304,10 @@ class Test_6b(TestCase_A7):
         ('Jon likes Garfield?', ('ask', CONTINGENT)),
     ]
     self.compareExtraCreditKnowledgeBase(examples, submission.createRule2)
-class Test_6c(TestCase_A7):
+class Test_5c(TestCase_A7):
   @graded(timeout=60, is_extra_credit = True)
   def test_0(self):
-    """6c-0-basic:  Check basic behavior of rule"""
+    """5c-0-basic:  Check basic behavior of rule"""
     examples = [
         ('If a person likes a cat then the former feeds the latter.', ('tell', CONTINGENT)),
         ('Jon is a person.', ('tell', CONTINGENT)),
@@ -318,7 +318,7 @@ class Test_6c(TestCase_A7):
 
   @graded(timeout=60, is_extra_credit = True)
   def test_1(self):
-    """6c-1-basic:  Check basic behavior of rule"""
+    """5c-1-basic:  Check basic behavior of rule"""
     examples = [
         ('If a person likes a cat then the former feeds the latter.', ('tell', CONTINGENT)),
         ('Jon is a person.', ('tell', CONTINGENT)),
@@ -330,7 +330,7 @@ class Test_6c(TestCase_A7):
 
   @graded(timeout=60, is_extra_credit = True)
   def test_2(self):
-    """6c-2-basic:  Check basic behavior of rule"""
+    """5c-2-basic:  Check basic behavior of rule"""
     examples = [
         ('If a person likes a cat then the former feeds the latter.', ('tell', CONTINGENT)),
         ('Jon likes Garfield.', ('tell', CONTINGENT)),
@@ -341,7 +341,7 @@ class Test_6c(TestCase_A7):
 
   @graded(timeout=60, is_extra_credit = True)
   def test_3(self):
-    """6c-3-basic:  Check basic behavior of rule"""
+    """5c-3-basic:  Check basic behavior of rule"""
     examples = [
         ('If a person likes a cat then the former feeds the latter.', ('tell', CONTINGENT)),
         ('Jon is a person.', ('tell', CONTINGENT)),

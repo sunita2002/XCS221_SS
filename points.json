@@ -1,6 +1,6 @@
 {
   "1a-0-basic" : {"points":1, "question_id":"1a", "is_written":false, "is_extra_credit":true},
-  "1b-0-basic" : {"points":2, "question_id":"1b", "is_written":false, "is_extra_credit":true},
+  "1b-0-basic" : {"points":1, "question_id":"1b", "is_written":false, "is_extra_credit":true},
   "1c-0-basic" : {"points":2, "question_id":"1c", "is_written":false, "is_extra_credit":true},
 
   "2a-0-basic" : {"points":0.5, "question_id":"2a", "is_written":false, "is_extra_credit":true},
@@ -41,8 +41,8 @@
   "5c-2-basic" : {"points":0.5, "question_id":"5c", "is_written":false, "is_extra_credit":true},
   "5c-3-basic" : {"points":0.5, "question_id":"5c", "is_written":false, "is_extra_credit":true},
 
-  "6a" : {"points":2, "question_id":"6a", "is_written":true, "is_extra_credit":true},
-  "6b" : {"points":2, "question_id":"6b", "is_written":true, "is_extra_credit":true},
-  "6c" : {"points":2, "question_id":"6c", "is_written":true, "is_extra_credit":true},
-  "6d" : {"points":2, "question_id":"6d", "is_written":true, "is_extra_credit":true} 
+  "6a" : {"points":1, "question_id":"6a", "is_written":true, "is_extra_credit":true},
+  "6b" : {"points":1, "question_id":"6b", "is_written":true, "is_extra_credit":true},
+  "6c" : {"points":1, "question_id":"6c", "is_written":true, "is_extra_credit":true},
+  "6d" : {"points":1, "question_id":"6d", "is_written":true, "is_extra_credit":true} 
 }

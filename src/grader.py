@@ -39,7 +39,7 @@ class TestCase_A7(GradedTestCase):
   def check(self, part, name, numForms, predictionFunc):
     predForms, predQuery = predictionFunc()
     if len(predForms) < numForms:
-      grader.fail("Wanted %d formulas, but got %d formulas:" % (numForms, len(predForms)))
+      self.fail("Wanted %d formulas, but got %d formulas:" % (numForms, len(predForms)))
       for form in predForms: print(('-', form))
       return
     if part == 'all':

@@ -12,5 +12,5 @@ is sound and/or complete. Explain your reasoning by drawing on examples and the 
 
 🐍
 import re
-with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_6a(.*?)% <SCPD_SUBMISSION_TAG>_6a', f.read(), re.DOTALL)).group(1))
+with open('submission.tex') as f: print((re.search(r'% <SCPD_SUBMISSION_TAG>_7a(.*?)% <SCPD_SUBMISSION_TAG>_7a', f.read(), re.DOTALL)).group(1))
 🐍

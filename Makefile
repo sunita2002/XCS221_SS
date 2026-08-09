@@ -22,6 +22,13 @@
 
 SHELL = /bin/sh
 
+# Portable in-place sed: BSD (macOS) needs an empty suffix arg, GNU (Linux CI) must not have one
+ifeq ($(shell uname),Darwin)
+SEDI := sed -i ''
+else
+SEDI := sed -i
+endif
+
 THIS_ASSIGNMENT = A7
 
 TEX_DEPENDENCIES = $(shell find tex -type f) points.json meta.json
@@ -42,9 +49,9 @@ $(THIS_ASSIGNMENT).pdf: $(TEX_DEPENDENCIES)
 	mkdir -p ./temp_tex_no_solutions
 	cp -a ./tex/* ./temp_tex_no_solutions/
 	cd ./temp_tex_no_solutions ; \
-	find "./" -name "*.tex" -exec sed -i '' '/.*START CODE HERE.*/,/.*END CODE HERE.*/{//!d;}' {} + ; \
-	find "./" -name "*.tex" -exec sed -i '' '/.*BEGIN_HIDE.*/,/.*END_HIDE.*/{//!d;}' {} + ; \
-	find "./" -name "*.tex" -exec sed -i '' '/SOLUTION ALERT/{N;d;}' {} + ; \
+	find "./" -name "*.tex" -exec $(SEDI) '/.*START CODE HERE.*/,/.*END CODE HERE.*/{//!d;}' {} + ; \
+	find "./" -name "*.tex" -exec $(SEDI) '/.*BEGIN_HIDE.*/,/.*END_HIDE.*/{//!d;}' {} + ; \
+	find "./" -name "*.tex" -exec $(SEDI) '/SOLUTION ALERT/{N;d;}' {} + ; \
 	latexmk -jobname="$(THIS_ASSIGNMENT)" && latexmk -jobname="$(THIS_ASSIGNMENT)" -c ; \
 	cd .. ; \
 	rm -rf ./temp_tex_no_solutions

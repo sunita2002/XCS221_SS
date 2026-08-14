@@ -6,7 +6,9 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
   exit 1
 fi
 
-ENV_NAME=".venv"
+ENV_NAME="XCS221"
+ENV_FILE="environment.yml"
+REQ_FILE="requirements.txt"
 REFRESH=false
 
 # --- Parse command-line options ---
@@ -27,58 +29,62 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-# --- Step 0: Detect architecture and write .python-version ---
-ARCH=$(uname -m)
-OS=$(uname -s)
-
-if [[ "$OS" == "Darwin" && "$ARCH" == "arm64" ]]; then
-  echo "cpython-3.12.3-macos-aarch64-none" > .python-version
-  echo "📄 Wrote ARM macOS Python version to .python-version"
-else
-  echo "3.12.3" > .python-version
-  echo "📄 Wrote Linux/x86_64 Python version to .python-version"
-fi
-
-# --- Step 1: Handle refresh ---
-if $REFRESH; then
-  echo "🔄 Refreshing environment..."
-  rm -rf "$ENV_NAME"
-  rm -f uv.lock
-fi
-
-# --- Step 2: Check for uv ---
-if ! command -v uv >/dev/null 2>&1; then
-  echo "❌ Error: 'uv' is not installed."
-  echo "Please install it using the official guide:"
-  echo "🔗 https://docs.astral.sh/uv/getting-started/installation/"
+# --- Step 1: Check prerequisites ---
+if ! command -v conda >/dev/null 2>&1; then
+  echo "❌ Error: 'conda' is not installed or not available in PATH."
+  echo "Please install Anaconda/Miniconda/Miniforge."
   exit 1
 fi
 
-# --- Step 3: Create virtual environment ---
-echo "📦 Creating virtual environment: $ENV_NAME"
-uv venv "$ENV_NAME"
-
-# --- Step 4: Activate the environment ---
-# Use `.` (dot) for POSIX compatibility
-if [ ! -d "$ENV_NAME/bin" ]; then
-  . "$ENV_NAME/Scripts/activate"
+if [[ -f "gradescope/environment.yml" ]]; then
+  ENV_FILE="gradescope/environment.yml"
+elif [[ -f "src/environment.yml" ]]; then
+  ENV_FILE="src/environment.yml"
 else
-  . "$ENV_NAME/bin/activate"
+  echo "❌ Error: 'environment.yml' not found."
+  exit 1
 fi
 
 
-# --- Step 5: Sync base dependencies from pyproject.toml ---
-echo "🔧 Syncing dependencies from pyproject.toml..."
-uv sync --active
-
-# --- Step 6: CPU/MPS installation ---
-echo "🟡 Installing CPU/MPS compatible dependencies..."
-uv pip install -r requirements.txt
-
-# --- Step 7: Re-activate (ensures correct env) ---
-echo "✅ Setup complete. Environment '$ENV_NAME' is now active."
-if [ ! -d "$ENV_NAME/bin" ]; then
-  . "$ENV_NAME/Scripts/activate"
+if [[ -f "gradescope/requirements.txt" ]]; then
+  REQ_FILE="gradescope/requirements.txt"
+elif [[ -f "src/requirements.txt" ]]; then
+  REQ_FILE="src/requirements.txt"
 else
-  . "$ENV_NAME/bin/activate"
+  echo "❌ Error: 'requirements.txt' not found."
+  exit 1
 fi
+
+# --- Step 2: Initialize conda for bash script execution ---
+eval "$(conda shell.bash hook)"
+
+# --- Step 3: Handle refresh ---
+if $REFRESH; then
+  echo "🔄 Refreshing environment '$ENV_NAME'..."
+  conda env remove -n "$ENV_NAME" -y >/dev/null 2>&1 || true
+fi
+
+# --- Step 4: Create or update Anaconda environment from environment.yml ---
+if conda env list | grep -q -E "^${ENV_NAME}\s"; then
+  echo "📦 Anaconda environment '$ENV_NAME' already exists. Updating..."
+  conda env update -n "$ENV_NAME" -f "$ENV_FILE" --prune
+else
+  echo "📦 Creating Anaconda environment '$ENV_NAME' from $ENV_FILE..."
+  conda env create -f "$ENV_FILE"
+fi
+
+# --- Step 5: Activate the XCS221 environment ---
+echo "🚀 Activating Anaconda environment '$ENV_NAME'..."
+conda activate "$ENV_NAME"
+
+# --- Step 6: Install dependencies using uv ---
+if ! command -v uv >/dev/null 2>&1; then
+  echo "❌ Error: 'uv' is not installed."
+  echo "Please install uv or ensure it is provided by the conda environment."
+  exit 1
+fi
+
+echo "🔧 Installing packages from $REQ_FILE using uv..."
+uv pip install -r "$REQ_FILE"
+
+echo "✅ Setup complete. Anaconda environment '$ENV_NAME' is active."

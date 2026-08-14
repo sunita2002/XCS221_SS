@@ -18,57 +18,34 @@ instructions below).
 
 ## Setting Up Virtual Environment
 
-Here is how you setup your local environment. For using Google Colab, you may skip this section.
-There are two ways to set up and manage the Python environment for this project:
+Here is how you setup your local environment.
+If you are using [Conda](https://anaconda.org/anaconda/conda), please walk through the
+[Anaconda Setup for XCS Courses](https://github.com/scpd-proed/General_Handouts/blob/master/Anaconda_Setup.pdf) to familiarize yourself with the coding environment.
 
-### Option 1: Using uv (Recommended)
-We have introduced [uv](https://docs.astral.sh/uv/) for a modern, faster environment management experience. For more detailed setup instructions, please refer to [the uv setup guide](docs/uv_setup.md).
-
-This workflow uses:
-- `pyproject.toml` to define base dependencies
-- `requirements.txt` for CPU and MPS (Apple GPU) systems
-
-#### Installation Steps
+### Installation Steps
 1. Run the installation script:
     ```bash
     source install.sh
     ```
     This will:
-    - Create a virtual environment in the root directory named `.venv`
-    - Configure OS compatible python version in `.python-version`
-    - Sync dependencies from `pyproject.toml`
-    - Automatically install CPU requirements depending on your hardware
+    - Create or update the Conda environment specified in `environment.yml`
+    - Automatically install dependencies
 2. Activate the environment
     ```bash
-    source .venv/bin/activate
+    conda activate <env_name>
     ```
+
+    Replace `<env_name>` with the name specified in the `environment.yml` file.
 
     > [!IMPORTANT]  
     > For every new terminal session you will need to activate your virtual environment. 
 
 3. Deactivate
     ```bash
-    deactivate
+    conda deactivate
     ```
 
-You can check if your virtual environment is ready for use by running `which python` and ensuring that the path returned is coming from within your `.venv/bin` directory. 
-
-### Option 2: Using conda (Legacy)
-If you prefer using [Conda](https://anaconda.org/anaconda/conda), please walk through the
-[Anaconda Setup for XCS Courses](https://github.com/scpd-proed/General_Handouts/blob/master/Anaconda_Setup.pdf) to familiarize yourself with the coding environment. You can create the environment from the provided  `environment.yml` file located in the `/src` directory:
-
-```bash
-cd src
-conda env create -f environment.yml
-conda activate <env_name>
-```
-
-Replace `<env_name>` with the name specified in the `environment.yml` file.
-
-Deactivate the environment at any time with:
-```bash
-conda deactivate
-```
+For more detailed setup instructions, please refer to [the environment setup guide](docs/env_setup.md).
 
 ## Running the autograder locally
 All assignment code is in the `src/` subirectory.  You will submit only the

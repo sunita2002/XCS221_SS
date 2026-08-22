@@ -1164,7 +1164,7 @@ def inject_header(html_content: str, assignment: str, name: str,
     course = re.search(r'XCS\d+[A-Z]*', _tex_title)
     pdf_line = ''
     if course:
-        pdf_url = f'https://github.com/scpd-proed/{course.group()}-{assignment}/blob/main/{assignment}.pdf'
+        pdf_url = f'https://github.com/scpd-proed/{course.group()}-{assignment}/blob/master/{assignment}.pdf'
         pdf_line = f'\n  <p class="meta"><a href="{pdf_url}">Original assignment PDF</a></p>'
 
     header_html = (

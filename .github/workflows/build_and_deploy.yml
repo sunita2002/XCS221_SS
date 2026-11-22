@@ -34,12 +34,12 @@ jobs:
         run: sudo apt-get install -y pandoc
 
       - name: Build assignment site
-        run: python3 scripts/flatten_and_convert.py
+        run: python3 scripts/flatten_and_convert.py --assignment A7
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site/
+          path: site/A7/
 
   deploy:
     needs: build

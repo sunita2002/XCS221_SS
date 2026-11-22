@@ -1,0 +1,8 @@
+name: XCS224R
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.13
+  - uv=0.13.1
+  - dm_control=1.0.9
